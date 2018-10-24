@@ -1,18 +1,17 @@
 package com.example.model.service;
 
-import com.example.ProjectConfig;
+
 import com.example.model.entity.Contact;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {ProjectConfig.class})
+//@ContextConfiguration(classes = {ProjectConfig.class})
 public class ContactServiceTest {
     //    @Deployment
 //    public static JavaArchive createDeployment() {
