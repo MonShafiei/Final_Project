@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -18,8 +20,11 @@ import java.util.Properties;
 /**
  * Created by Mohsen on 18/10/12.
  */
+
+//@Import({DataConfiguration.class,MyWebAppInitializer.class})
+@Import(DataConfiguration.class)
 @Configuration
-@ComponentScan({"com.example.dao","com.example.service"})
+@ComponentScan({"com.example.model.dao", "com.example.model.service","com.example.*"})
 @EnableTransactionManagement
 public class ProjectConfig {
 
@@ -48,7 +53,7 @@ public class ProjectConfig {
                 new LocalContainerEntityManagerFactoryBean();
         factoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
         factoryBean.setDataSource(dataSource());
-        factoryBean.setPackagesToScan("com.example.entity");
+        factoryBean.setPackagesToScan("com.example.model.entity");
         factoryBean.setJpaProperties(HibernateProperties());
         return factoryBean;
     }

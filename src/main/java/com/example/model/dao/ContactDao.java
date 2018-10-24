@@ -1,6 +1,6 @@
-package com.example.dao;
+package com.example.model.dao;
 
-import com.example.entity.Contact;
+import com.example.model.entity.Contact;
 
 import java.util.List;
 

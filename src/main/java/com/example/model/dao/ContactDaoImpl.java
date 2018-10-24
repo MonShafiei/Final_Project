@@ -1,6 +1,6 @@
-package com.example.dao;
+package com.example.model.dao;
 
-import com.example.entity.Contact;
+import com.example.model.entity.Contact;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -29,9 +29,10 @@ public class ContactDaoImpl implements ContactDao {
     }
 
     public Contact selectById(Long id) {
-        return entityManager.find(Contact.class,id);
+        return entityManager.find(Contact.class, id);
     }
-@SuppressWarnings("unchecked")
+
+    @SuppressWarnings("unchecked")
     public List<Contact> readAll() {
         Query query = entityManager.createQuery("FROM Contact");
         return (List<Contact>) query.getResultList();
